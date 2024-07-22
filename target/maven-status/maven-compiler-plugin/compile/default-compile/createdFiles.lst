@@ -1,0 +1,4 @@
+conexion\conexionbd.class
+com\mycompany\crudado\resources\JakartaEE10Resource.class
+com\mycompany\crudado\JakartaRestConfiguration.class
+servlets\Svingreso.class
