@@ -22,13 +22,15 @@ public class Svingreso extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String usuario = request.getParameter("usuario");
         String clave = request.getParameter("clave");
-
-        if (USUARIO_VALIDO.equals(usuario) && CLAVE_VALIDA.equals(clave)) {
-            response.sendRedirect("registro_visita.jsp");
-        } else {
-            request.setAttribute("error", "Usuario o clave incorrectos");
-            request.setAttribute("errorExist", true);
-            request.getRequestDispatcher("ingreso.jsp").forward(request, response);
+    if (USUARIO_VALIDO.equals(usuario) && CLAVE_VALIDA.equals(clave)) {
+                // Autenticación exitosa
+                System.out.println("Ingreso exitoso");
+                request.getSession().setAttribute("usuario", usuario);
+                response.sendRedirect("prebienvenida.jsp"); // Redirige a la página de bienvenida
+            } else {
+                // Autenticación fallida
+                System.out.println("Error de ingreso: Usuario o clave incorrectos");
+                response.sendRedirect("ingreso.jsp?error=1"); // Redirige a la página de ingreso con un parámetro de error
+                }
         }
-    }
 }

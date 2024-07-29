@@ -68,6 +68,16 @@
             background-color: #f33f5a;
             border: 5px solid #f33f5a;
         }
+        
+         .error-message {
+            color: #e53854;
+            background-color: #f8d7da;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
         @media (max-width: 991px) {
             body {
                 padding: 30px;
@@ -87,16 +97,19 @@
     
     <form action="Svingreso" method="post">
         <h2>Registro de usuario</h2>
+         <% 
+            // Verifica si hay un parámetro de error en la URL
+            String error = request.getParameter("error");
+            if ("1".equals(error)) {
+        %>
+            <div class="error-message">Usuario o clave incorrectos</div>
+        <% 
+            }
+        %>
+        
         <input type="text" name="usuario" placeholder="Usuario">
         <input type="password" name="clave" placeholder="Contraseña">
         <input type="submit" class="btn" value="ingresar">
-        
-        <div class="container" id="container6">
-        <i class="fa fa-user-plus fa-lg icon" aria-hidden="true"></i>
-        <button type="button"class="button" onclick="window.location.href='history.jsp'">Nosotros</button>
-    </div>
-    </form>
-    
-   
+    </form>    
 </body>
 </html>
