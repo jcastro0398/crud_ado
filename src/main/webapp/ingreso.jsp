@@ -96,7 +96,7 @@
 <body>
     
     <form action="Svingreso" method="post">
-        <h2>Registro de usuario</h2>
+        <h2>Ingreso de usuario</h2>
          <% 
             // Verifica si hay un parámetro de error en la URL
             String error = request.getParameter("error");
